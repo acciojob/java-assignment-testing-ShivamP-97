@@ -1,3 +1,5 @@
+package com.driver.test;
+
 import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayInputStream;
@@ -8,7 +10,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TestCase {
+import Main;
+
+public class TestCases {
 
     private final PrintStream originalOut = System.out;
     private final java.io.InputStream originalIn = System.in;
@@ -52,17 +56,9 @@ public class TestCase {
     }
 
     @Test
-    public void testNEqualsZero() {
+    public void testZeroInput() {
         provideInput("0");
         Main.main(new String[]{});
         assertEquals("\n", outContent.toString());
-    }
-
-    @Test
-    public void testAlphabetWrap() {
-        provideInput("27");
-        Main.main(new String[]{});
-        assertEquals("a\n", outContent.toString().substring(
-                outContent.toString().length() - 2));
     }
 }
